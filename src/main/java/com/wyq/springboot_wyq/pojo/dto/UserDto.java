@@ -5,16 +5,20 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 
+//Dto：Data Transfer Object(数据传输对象)
 public class UserDto {
     private Integer userId;
 
+    //userName
     @NotBlank(message = "ユーザー名を入力してください")//去除空格
     private String userName;
 
-    @NotBlank(message = "パスワードを入力してください")//去除空格
+    //password
+    @NotBlank(message = "パスワードを入力してください")//@NotBlank：只用于检验字符串类型是否为空格或不为空。去除空格
     @Length(min = 6,max = 12)//规定密码长度
     private String password;
 
+    //email
     @Email(message = "正しい形式のパスワードを入力してください")
     private String email;
 

@@ -2,11 +2,17 @@ package com.wyq.springboot_wyq.pojo;
 
 import jakarta.persistence.*;
 
+
+
+//@Table：将实体类映射成数据库的表
+//@Entity：@Table(name=”“)：表明这是一个实体类。jpa中这两个注解一般一块使用，但是如果表名和实体类名相同的话，@Table可以省略。
+
 @Table(name = "tb_user")
 @Entity
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id//主键
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//自动生成
     @Column(name = "user_id")
     private Integer userId;
 
@@ -60,4 +66,5 @@ public class User {
                 ", email='" + email + '\'' +
                 '}';
     }
+
 }
